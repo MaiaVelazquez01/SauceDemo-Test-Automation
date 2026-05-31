@@ -21,4 +21,11 @@ describe('Login Sauce Demo', () => {
         .and('contain','Epic sadface: Username and password do not match any user in this service')
     })
 
+    it('Login con campos vacíos', () => {
+        cy.get('[data-test="login-button"]').click()
+        cy.get('[data-test="error"]')
+        .should('be.visible')
+        .and('contain','Epic sadface: Username is required')
+    })
+
 })
